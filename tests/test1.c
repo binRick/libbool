@@ -1,7 +1,9 @@
-#include "bool.h"
+#include <stdlib.h>
+/*********************************/
 #include "bool.c"
 #include "is_number.c"
 #include "log.c"
+/*********************************/
 
 
 void test_bool(const char *s){
