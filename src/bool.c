@@ -1,6 +1,6 @@
 #ifndef BOOL_C
 #define BOOL_C
-#include "bool.h"
+#include "../include/bool.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
