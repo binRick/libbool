@@ -9,6 +9,17 @@ openssl = dependency('openssl', required : true)
 sh = find_program('sh', required : true)
 passh = find_program('passh', required : true)
 
+lib_bool = library(
+    'bool',
+    [
+        'src/bool.c',
+    ],
+    install: true,
+    include_directories: [],
+    dependencies: [],
+    c_args : []
+)
+
 test1 = executable('test1',
   ['tests/test1.c'],
   include_directories: ['include','src'],
