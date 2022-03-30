@@ -9,8 +9,7 @@ openssl = dependency('openssl', required : true)
 sh = find_program('sh', required : true)
 passh = find_program('passh', required : true)
 
-lib_bool = library(
-    'bool',
+lib_bool = library('bool',
     [
         'src/bool.c',
     ],
@@ -25,3 +24,18 @@ test1 = executable('test1',
   include_directories: ['include','src'],
   )
 
+
+# Generate a Pkg config file
+pkg = import('pkgconfig')
+pkg.generate(
+    libraries: [lib_bool],
+    subdirs: [],
+    name: 'libbool',
+    version: '1.0',
+    filebase: 'libbool',
+    description: 'Library for switching user-space stacks')
+
+# Export the dependency
+dep_bool = declare_dependency(
+    link_with: [lib_bool],
+    include_directories: [])
